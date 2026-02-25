@@ -5,11 +5,10 @@
 #   Lynis
 # ------------------
 #
-# Copyright 2007-2013, Michael Boelen
-# Copyright 2013-2016, CISOfy
+# Copyright (c) Michael Boelen, CISOfy, and many contributors.
 #
 # Website  : https://cisofy.com
-# Blog     : http://linux-audit.com
+# Blog     : https://linux-audit.com/
 # GitHub   : https://github.com/CISOfy/lynis
 #
 # Lynis comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
@@ -22,15 +21,14 @@
 #
 #################################################################################
 #
-    InsertSection "Virtualization"
+    InsertSection "${SECTION_VIRTUALIZATION}"
 #
 #################################################################################
 #
 #    # Test        : VIRT-1920
 #    # Description : Checking VMware
-#    Register --test-no VIRT-1920 --weight L --network NO --description "Checking VMware guest status"
+#    Register --test-no VIRT-1920 --weight L --network NO --category security --description "Checking VMware guest status"
 #    if [ ${SKIPTEST} -eq 0 ]; then
-#        # Initialise
 #        VMWARE_GUEST=0
 #        Display --indent 2 --text "- Checking VMware guest status"
 #        # check memory driver file
@@ -40,9 +38,9 @@
 #        if [ ! "${VMWARETOOLSBINARY}" = "" ]; then
 #            LogText "Result: VMware tools binary found"
 #            VMWARE_GUEST=1
-#            Display --indent 4 --text "- Checking VMware tools daemon" --result FOUND --color GREEN
+#            Display --indent 4 --text "- Checking VMware tools daemon" --result "${STATUS_FOUND}" --color GREEN
 #          else
-#            Display --indent 4 --text "- Checking VMware tools daemon" --result "NOT FOUND" --color WHITE
+#            Display --indent 4 --text "- Checking VMware tools daemon" --result "${STATUS_NOT_FOUND}" --color WHITE
 #        fi
 #
 #    fi
